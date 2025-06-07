@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Services</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4fdf5;
+      color: #333;
+    }
+
+    /* Navbar Styling */
+    .navbar {
+      background-color: rgb(140, 185, 140);
+    }
+
+    .navbar-brand, .navbar-nav .nav-link {
+      color: white !important;
+      font-weight: 500;
+    }
+
+    .navbar-nav .nav-link:hover {
+      text-decoration: underline;
+    }
+
+    .hero {
+      background: linear-gradient(120deg, rgb(140, 185, 140), rgb(140, 185, 140));
+
+
+      color: white;
+      padding: 100px 0;
+      text-align: center;
+    }
+    .hero h1 {
+      font-weight: bold;
+    }
+
+    .section-title {
+      margin-bottom: 50px;
+      text-align: center;
+    }
+
+    .card {
+      border: none;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .card i {
+      font-size: 3rem;
+      color: rgb(140, 185, 140);
+    }
+
+    footer {
+      background-color: rgb(140, 185, 140);
+      padding: 30px 0;
+      color: #333;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">PlantDoc</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link text-success fw-medium" href="{{ url_for('home_page') }}">
+              <i class="fas fa-home me-1"></i> Home
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-success fw-medium" href="{{ url_for('market') }}">
+              <i class="fas fa-store me-1"></i> Market
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-success fw-medium" href="{{ url_for('ai_engine_page') }}">
+              Detect
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-success fw-medium" href="{{ url_for('contact') }}">
+              Contact
+            </a>
+          </li>
+           <li class="nav-item">
+            <a class="nav-link text-success fw-medium" href="{{ url_for('user_login') }}">
+              Login
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Hero Section -->
+  <div class="hero">
+    <div class="container">
+      <h1>Our Services</h1>
+      <p class="lead">Harnessing the power of AI and Deep Learning to protect plants, support farmers, and grow a greener tomorrow.</p>
+    </div>
+  </div>
+
+  <!-- Services Section -->
+  <section class="py-5">
+    <div class="container">
+      <div class="section-title">
+        <h2>What We Offer</h2>
+        <p>Explore our cutting-edge plant disease detection solutions</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-sm-12 col-md-4" data-aos="fade-up">
+          <div class="card p-4 text-center h-100">
+            <i class="fas fa-seedling mb-3"></i>
+            <h5>PlantDoc</h5>
+            <p>Real-time image analysis using CNN, ResNet18, MobileNetV2, and EfficientNetB0 models to detect crop diseases accurately.</p>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="card p-4 text-center h-100">
+            <i class="fas fa-mobile-alt mb-3"></i>
+            <h5>Mobile Friendly Interface</h5>
+            <p>Access predictions and crop health advice anytime, anywhere through our responsive web app.</p>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="card p-4 text-center h-100">
+            <i class="fas fa-leaf mb-3"></i>
+            <h5>Supplement Recommendation</h5>
+            <p>Get personalized recommendations for organic and chemical supplements based on disease type.</p>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="card p-4 text-center h-100">
+            <i class="fas fa-chart-line mb-3"></i>
+            <h5>Analytics Dashboard</h5>
+            <p>
+              Visual insights on disease trends, model performance, and plant health statistics:
+              <ul class="text-start ps-3">
+                <li>MobileNetV2 – 99.54%</li>
+                <li>ResNet18 – 99.42%</li>
+                <li>EfficientNetB0 – 99.61%</li>
+                <li>CNN – 97.83%</li>
+              </ul>
+            </p>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-4" data-aos="fade-up" data-aos-delay="400">
+          <div class="card p-4 text-center h-100">
+            <i class="fas fa-cloud-upload-alt mb-3"></i>
+            <h5>Bulk Image Upload</h5>
+            <p>Upload multiple leaf images at once and receive batch predictions and advice.</p>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-4" data-aos="fade-up" data-aos-delay="500">
+          <div class="card p-4 text-center h-100">
+            <i class="fas fa-brain mb-3"></i>
+            <h5>AI-Powered Insights</h5>
+            <p>Machine learning-powered analysis for proactive plant disease prevention and management.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+       <footer class="bg-success text-center p-3 mt-auto" style="background-color:rgb(117, 173, 117) !important;">
+    <div>
+      <a href="{{ url_for('home_page') }}" class="btn btn-outline-light btn-sm m-1 text-white">Home</a>
+      <a href="{{ url_for('about') }}" class="btn btn-outline-light btn-sm m-1 text-white">About</a>
+      <a href="/faq" class="btn btn-outline-light btn-sm m-1 text-white">FAQs</a>
+      <a href="{{ url_for('contact') }}" class="btn btn-outline-light btn-sm m-1 text-white">Contact</a>
+      <a href="{{ url_for('services') }}" class="btn btn-outline-light btn-sm m-1 text-white">Services</a>
+    </div>
+    <div class="text-white mt-2">&copy; PlantDoc 2025</div>
+  </footer>
+
+  <!-- JS Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+
+</body>
+</html>

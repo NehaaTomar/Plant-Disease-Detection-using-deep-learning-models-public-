@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ crop }} Disease Details</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+    <style>
+        /* Navbar styles */
+        nav {
+            background-color: rgb(140, 200, 140);
+            padding: 12px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .brand {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: white;
+        }
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: #2c3e50;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f4f6f8;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            text-align: center;
+            color: #2c3e50;
+        }
+        .disease-card {
+            display: flex;
+            gap: 20px;
+            background-color: rgb(140, 200, 140); /* updated */
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .disease-card:hover {
+            transform: translateY(-4px);
+        }
+        .disease-image {
+            width: 140px;
+            height: 140px;
+            object-fit: contain;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            flex-shrink: 0;
+            background-color: #f9f9f9;
+            padding: 8px;
+        }
+        .info-content {
+            flex: 1;
+            min-width: 250px;
+        }
+        .info-content h3 {
+            margin-top: 0;
+            color: #34495e;
+        }
+        .info-content p {
+            margin: 5px 0;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+<nav aria-label="Primary navigation">
+    <div class="brand">PlantDoc</div>
+    <div class="nav-links">
+        <a href="{{ url_for('home_page') }}">Home</a>
+        <a href="{{ url_for('ai_engine_page') }}">AI Engine</a>
+        <a href="{{ url_for('about') }}">About</a>
+        <a href="{{ url_for('contact') }}">Contact</a>
+        <a href="{{ url_for('services') }}">Services</a>
+    </div>
+</nav>
+
+<div class="container">
+    <h1>Disease Information for {{ crop }}</h1>
+
+    {% if diseases %}
+        <h2>Diseases</h2>
+        {% for disease in diseases %}
+            <article class="disease-card" aria-label="Details of {{ disease.disease_name }}">
+                {% if disease.image_url %}
+                    {% set image_url = disease.image_url.strip() %}
+                    {% if image_url.startswith('http') %}
+                        <img src="{{ image_url }}" alt="{{ disease.disease_name }}" class="disease-image" loading="lazy" />
+                    {% else %}
+                        <img src="{{ url_for('static', filename='image_path/' + image_url) }}" alt="{{ disease.disease_name }}" class="disease-image" loading="lazy" />
+                    {% endif %}
+                {% endif %}
+                <div class="info-content">
+                    <h3>{{ disease.disease_name }}</h3>
+                    <p>{{ disease.description }}</p>
+                </div>
+            </article>
+        {% endfor %}
+    {% else %}
+        <p>No disease data available for this crop.</p>
+    {% endif %}
+</div>
+
+
+<!-- Add this just before </body> -->
+<div style="
+    background-color: rgb(140,200,140);
+    color:rgb(6, 11, 12);
+    padding: 30px 20px;
+    text-align: center;
+    font-family: 'Segoe UI', sans-serif;
+    margin-top: 60px;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+">
+    <p style="font-size: 1.2rem; margin-bottom: 10px;">
+        🌱 “The health of soil, plant, animal and man is one and indivisible.” – Albert Howard
+    </p>
+    <p style="font-size: 0.95rem; color: #bdc3c7;">
+        &copy; 2025 PlantDoc. All rights reserved.
+    </p>
+</div>
+
+</body>
+</html>

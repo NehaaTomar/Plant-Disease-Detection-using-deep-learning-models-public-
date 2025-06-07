@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Supported Crops & Diseases</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#16a34a',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-green-50 min-h-screen text-gray-800">
+
+  {% extends 'base.html' %}
+{% block pagetitle %}
+Supported Crops
+{% endblock pagetitle %}
+
+{% block body %}
+<style>
+  .image-card {
+    background-color: rgb(167, 216, 167);
+    border-radius: 14px;
+    padding: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    max-width: 280px;
+    margin: 20px auto;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .image-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+  }
+
+  .image-card img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    border: 3px solid #008080;
+  }
+
+  .image-card p.lead {
+    font-weight: 700;
+    color: #008080;
+  }
+
+  .disease-list {
+    font-size: 0.9rem;
+    color: #333;
+  }
+
+  h1 {
+    text-align: center;
+    color: #008080;
+    font-size: 2rem;
+    margin-top: 30px;
+  }
+
+  p.description {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #4a4a4a;
+    margin-bottom: 30px;
+  }
+
+  .row.justify-content-center {
+    padding-bottom: 50px;
+  }
+</style>
+
+<h1>🌾 Supported Crops & Diseases 🌿</h1>
+<p class="description">Below are the supported crops and their detectable diseases.</p>
+
+ <!-- 🔍 Search bar -->
+    <div class="mb-10 max-w-lg mx-auto">
+      <input type="text" id="search" placeholder="Search for a crop..."
+             class="w-full px-4 py-2 border border-green-300 rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500" />
+    </div>
+
+<div class="row justify-content-center">
+  {% set crops = [
+    ('Apple', 'Apple.png', ['Apple Scab', 'Black Rot', 'Cedar Apple Rust', 'Healthy']),
+    ('Blueberry', 'Blueberry.png', ['Healthy']),
+    ('Cherry', 'Cherry.png', ['Powdery Mildew', 'Healthy']),
+    ('Corn', 'corn.png', ['Cercospora Leaf Spot', 'Common Rust', 'Northern Leaf Blight', 'Healthy']),
+    ('Grape', 'Grapes.png', ['Black Rot', 'Esca (Black Measles)', 'Leaf Blight', 'Healthy']),
+    ('Orange', 'Oranges.png', ['Citrus Greening']),
+    ('Peach', 'Peach.png', ['Bacterial Spot', 'Healthy']),
+    ('Pepper bell', 'Pepper.png', ['Bacterial Spot', 'Healthy']),
+    ('Potato', 'Potato.png', ['Early Blight', 'Late Blight', 'Healthy']),
+    ('Raspberry', 'Raspberry.png', ['Healthy']),
+    ('Squash', 'Squash.png', ['Powdery Mildew']),
+    ('Soybean', 'Soyabean.png', ['Healthy']),
+    ('Strawberry', 'Strawberry.png', ['Leaf Scorch', 'Healthy']),
+    ('Tomato', 'Tomato.png', ['Bacterial Spot', 'Early Blight', 'Late Blight', 'Leaf Mold', 'Septoria Leaf Spot', 'Spider Mites', 'Target Spot', 'Yellow Leaf Curl Virus', 'Mosaic Virus', 'Healthy'])
+  ] %}
+
+  {% for name, filename, diseases in crops %}
+  <div class="col-lg-3 col-md-4 col-sm-6">
+    <div class="image-card">
+      <img src="https://ik.imagekit.io/eu4vvexmy7/{{ filename }}" alt="{{ name }}" loading="lazy">
+      <p class="lead">{{ name }}</p>
+      <p class="disease-list">{{ diseases | join(', ') }}</p>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock body %}
+<!-- ℹ️ FAQ link -->
+    <div class="mt-12 text-center">
+      <a href="{{ url_for('faq_page') }}"
+         class="inline-block text-white bg-green-600 px-6 py-2 rounded-full hover:bg-green-700 transition duration-200">
+        Need help? Visit the FAQ page
+      </a>
+    </div>
+  </div>
+
+  <!-- 🔍 JS for crop search -->
+  <script>
+    const searchInput = document.getElementById('search');
+    const cropCards = document.querySelectorAll('.crop-card');
+
+    searchInput.addEventListener('input', () => {
+      const keyword = searchInput.value.toLowerCase();
+      cropCards.forEach(card => {
+        const crop = card.dataset.crop;
+        card.style.display = crop.includes(keyword) ? 'block' : 'none';
+      });
+    });
+  </script>
+</body>
+</html>
