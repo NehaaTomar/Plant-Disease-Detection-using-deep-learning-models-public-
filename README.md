@@ -29,6 +29,8 @@
 * [License](#license)
 ---
 ## 🌿 Project Overview
+[🎬 Watch PlantDoc.mp4](https://github.com/NehaaTomar/Plant-Disease-Detection-using-deep-learning-models-public-/raw/main/PlantDoc.mp4)
+
 
 Plant diseases can cause significant agricultural loss. Early and accurate detection is crucial. This project aims to build a deep learning-based multi-crop disease detection system with 39 disease classes across 14 crop species.
 The solution uses CNN architectures trained on curated datasets and is deployed as a web app for farmers, researchers, and agriculturalists.
