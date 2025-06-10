@@ -28,12 +28,6 @@
 * [Tech Stack](#tech-stack)
 * [License](#license)
 ---
-## 🌿 Project Overview
-<video width="720" controls>
-  <source src="https://github.com/NehaaTomar/Plant-Disease-Detection-using-deep-learning-models-public-/raw/main/PlantDoc.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-
 <p><a href="https://github.com/NehaaTomar/Plant-Disease-Detection-using-deep-learning-models-public-/raw/main/PlantDoc.mp4">📥 Download video</a></p>
 ## 🎥 Project Demo
 
