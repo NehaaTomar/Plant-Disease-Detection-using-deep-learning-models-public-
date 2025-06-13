@@ -29,7 +29,7 @@
 * [License](#license)
 ---
 <p><a href="https://github.com/NehaaTomar/Plant-Disease-Detection-using-deep-learning-models-public-/raw/main/PlantDoc.mp4">📥 Download video</a></p>
-## 🎥 Project Demo
+## 🎥 Project Demo -> Click to watch
 
 [![Watch the video](https://img.youtube.com/vi/T23B08-u3Qo/maxresdefault.jpg)](https://youtu.be/T23B08-u3Qo)
 
