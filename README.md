@@ -280,9 +280,9 @@ All models track and save:
 
 * 📈 Training/Validation Accuracy
 1.Train
-![Training/Validation Accuracy](train_acc.png)
+![Training/Validation Accuracy](images/train_acc.png)
 2.Val
-![Training/Validation Accuracy](val_acc.png)
+![Training/Validation Accuracy](images/val_acc.png)
 
 * 🧩 Confusion Matrix
  1. CNN
@@ -331,7 +331,7 @@ python confusion_matrix.py
 
 1. Clone repository
 ```bash
-git clone https://github.com/your-username/plantdoc.git
+git clone 
 cd plantdoc
 3. Activate virtual environment
 python -m venv venv
@@ -343,7 +343,7 @@ pip install -r requirements.txt
 6. Visit `http://localhost:5000`
 
 ```bash
-git clone https://github.com/your-username/plantdoc
+git clone https://github.com/NehaaTomar/Plant-Disease-Detection-using-deep-learning-models-public-
 cd plantdoc
 pip install -r requirements.txt
 python app.py
